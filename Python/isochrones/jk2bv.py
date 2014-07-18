@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from teff_bv import teff2bv_err
+from teff_bv import teff2bv_orig
 
 # from http://irsa.ipac.caltech.edu/cgi-bin/bgTools/nph-bgExec
 # E(B-V)S&F =  0.86 x E(B-V)SFD
@@ -89,3 +89,6 @@ print teff
 
 plt.plot(j_k, teff, 'ro')
 plt.savefig("JK2teff")
+
+feh = np.zeros_like(teff)
+bv = teff2bv_orig(teff, logg, feh)
